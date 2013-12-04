@@ -1,0 +1,2398 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <title>Regions and Endpoints - Amazon Web Services</title>
+    <link rel="home" href="#general-ref-top" title="Amazon Web Services">
+    <link rel="up" href="#general-ref-top" title="Amazon Web Services">
+    <link rel="prev" href="Welcome.html" title="AWS General Reference">
+    <link rel="next" href="aws-security-credentials.html" title="AWS Security Credentials">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta name="description" content="To reduce data latency in your applications, most Amazon Web Services products allow you to select a regional endpoint to make your requests. An endpoint is a URL that is the entry point for a web service. For example, https://dynamodb.us-west-2.amazonaws.com">
+    <meta name="keywords" content="">
+    <link rel="icon" type="image/ico" href="//d36cz9buwru1tt.cloudfront.net/favicon.ico">
+    <link rel="shortcut icon" type="image/ico" href="//d36cz9buwru1tt.cloudfront.net/favicon.ico">
+    <link rel="canonical" href="http://docs.aws.amazon.com/general/latest/gr/rande.html">
+    <link rel="stylesheet" type="text/css" href="aws-docs2.css">
+    <script type="text/javascript" src="https://d36cz9buwru1tt.cloudfront.net/amznUrchin.js"></script><script src="all_1.js" type="text/javascript"></script><script src="awstoc.js" type="text/javascript"></script>
+  </head>
+  <body id="top" class="yui-skin-sam noJS">
+    <div id="divHeader">
+      <form method="get" onsubmit="return searchFormSubmit(this);" action="/search/doc-search.html">
+        <div id="ad"><a id="adl" target="_top" href="http://aws.amazon.com/documentation/"><img id="adi" alt="Amazon Web Services" src="images/documentation_logo200x29.png"></a></div>
+        <div id="txt">
+          <div id="srv">Amazon Web Services</div>
+          <div id="gd">General Reference (Version 1.0)</div>
+        </div>
+        <div id="sfrm">
+          <span id="lbl"><label>Search: </label></span>
+          <select id="sel" name="searchPath">
+            <option value="all">Entire Site</option>
+            <option value="AWSMarketplace">AMIs from AWS Marketplace</option>
+            <option value="amis">AMIs from All Sources</option>
+            <option value="articles">Articles &amp; Tutorials</option>
+            <option value="products_and_info">AWS Product Information</option>
+            <option value="case_studies">Case Studies</option>
+            <option value="customerapps">Customer Apps</option>
+            <option value="documentation">Documentation</option>
+            <option value="documentation-product">Documentation - This Product</option>
+            <option value="documentation-guide" selected>Documentation - This Guide</option>
+            <option value="datasets">Public Data Sets</option>
+            <option value="releasenotes">Release Notes</option>
+            <option value="solution_providers">Partners</option>
+            <option value="code">Sample Code &amp; Libraries</option>
+          </select>
+          <input id="sq" name="searchQuery" type="text"><input id="sb" src="images/search-button.png" alt="Go" type="image">
+        </div>
+        <input type="hidden" name="this_doc_product" id="this_doc_product" value="Amazon Web Services"><input type="hidden" name="this_doc_guide" id="this_doc_guide" value="General Reference"><input type="hidden" name="doc_locale" value="en_us">
+      </form>
+    </div>
+    <script type="text/javascript"><!--
+      var thispage = "rande.html";
+      var tocroot = location.protocol + '//' + location.hostname + location.pathname;
+      --></script>
+    <div id="divLeft">
+      <div id="divTOC">
+        <ul class="awstoc">
+          <li class="awstoc leaf"><a class="awstoc" href="Welcome.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-Welcome.html');">AWS General Reference</a></li>
+          <li class="awstoc leaf"><a class="awstoc selected" href="rande.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-rande.html');">Regions and Endpoints</a></li>
+          <li class="awstoc closed">
+            <a class="awstoc" href="aws-security-credentials.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-aws-security-credentials.html');">AWS Security Credentials</a>
+            <ul class="awstoc">
+              <li class="awstoc leaf"><a class="awstoc" href="root-vs-iam.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-root-vs-iam.html');">Root Account Credentials vs. IAM User Credentials</a></li>
+              <li class="awstoc leaf"><a class="awstoc" href="aws-sec-cred-types.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-aws-sec-cred-types.html');">Types of Security Credentials</a></li>
+              <li class="awstoc leaf"><a class="awstoc" href="getting-aws-sec-creds.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-getting-aws-sec-creds.html');">How Do I Get Security Credentials?</a></li>
+              <li class="awstoc leaf"><a class="awstoc" href="acct-identifiers.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-acct-identifiers.html');">AWS Account Identifiers</a></li>
+            </ul>
+          </li>
+          <li class="awstoc closed">
+            <a class="awstoc" href="signing_aws_api_requests.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-signing_aws_api_requests.html');">Signing AWS API Requests</a>
+            <ul class="awstoc">
+              <li class="awstoc closed">
+                <a class="awstoc" href="signature-version-4.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-signature-version-4.html');">Signature Version 4 Signing Process</a>
+                <ul class="awstoc">
+                  <li class="awstoc closed">
+                    <a class="awstoc" href="sigv4_signing.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-sigv4_signing.html');">Signing AWS Requests</a>
+                    <ul class="awstoc">
+                      <li class="awstoc leaf"><a class="awstoc" href="sigv4-create-canonical-request.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-sigv4-create-canonical-request.html');">Task 1: Create a Canonical Request</a></li>
+                      <li class="awstoc leaf"><a class="awstoc" href="sigv4-create-string-to-sign.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-sigv4-create-string-to-sign.html');">Task 2: Create a String to Sign</a></li>
+                      <li class="awstoc closed">
+                        <a class="awstoc" href="sigv4-calculate-signature.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-sigv4-calculate-signature.html');">Task 3: Calculate the Signature</a>
+                        <ul class="awstoc">
+                          <li class="awstoc leaf"><a class="awstoc" href="signature-v4-examples.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-signature-v4-examples.html');">Key Derivation Samples</a></li>
+                        </ul>
+                      </li>
+                      <li class="awstoc leaf"><a class="awstoc" href="sigv4-signed-request-examples.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-sigv4-signed-request-examples.html');">Signed Request Examples</a></li>
+                    </ul>
+                  </li>
+                  <li class="awstoc leaf"><a class="awstoc" href="sigv4-date-handling.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-sigv4-date-handling.html');">Handling Dates</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="signature-v4-test-suite.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-signature-v4-test-suite.html');">Test Suite</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="signature-v4-troubleshooting.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-signature-v4-troubleshooting.html');">Troubleshooting</a></li>
+                </ul>
+              </li>
+              <li class="awstoc leaf"><a class="awstoc" href="signature-version-2.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-signature-version-2.html');">Signature Version 2 Signing Process</a></li>
+            </ul>
+          </li>
+          <li class="awstoc leaf"><a class="awstoc" href="aws-arns-and-namespaces.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-aws-arns-and-namespaces.html');">Amazon Resource Names (ARNs) and AWS Service Namespaces</a></li>
+          <li class="awstoc leaf"><a class="awstoc" href="GetTheTools.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-GetTheTools.html');">AWS Command Line Tools</a></li>
+          <li class="awstoc leaf"><a class="awstoc" href="aws_service_limits.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-aws_service_limits.html');">AWS Service Limits</a></li>
+          <li class="awstoc leaf"><a class="awstoc" href="api-retries.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-api-retries.html');">API Retries</a></li>
+          <li class="awstoc leaf"><a class="awstoc" href="docconventions.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-docconventions.html');">Document Conventions</a></li>
+          <li class="awstoc leaf"><a class="awstoc" href="gr_doc_history.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-gr_doc_history.html');">Documentation History</a></li>
+          <li class="awstoc leaf"><a class="awstoc" href="glos-chap.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-glos-chap.html');">AWS Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="divRight">
+      <div id="divContent">
+        <table width="100%" summary="Navigation header" cellspacing="0" cellpadding="2" style="margin-top:12px;">
+          <tr>
+            <td valign="top">
+              <div class="navheader"></div>
+            </td>
+            <td width="350px" align="right" valign="top"><a class="awstoc" accesskey="p" style="margin-right:12px;" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-previous', 'aws-docs-click', location.protocol + '//' + location.hostname + '/Welcome.html');" href="Welcome.html">&laquo; Previous</a><a class="awstoc" accesskey="n" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-next', 'aws-docs-click', location.protocol + '//' + location.hostname + '/aws-security-credentials.html');" href="aws-security-credentials.html">Next &raquo;</a></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td width="350px" align="right" valign="top">Did this page help you?&nbsp;&nbsp;<a class="awstoc" target="_blank" href="feedbackyes.html?topic_id=rande">Yes</a>&nbsp;|&nbsp;<a class="awstoc" target="_blank" href="feedbackno.html?topic_id=rande">No</a>&nbsp;|&nbsp;&nbsp;<a class="awstoc" target="_blank" href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_04?service_name=Regions&amp;guide_name=General%20Reference&amp;api_version=1.0&amp;file_name=rande">Tell us about it...</a></td>
+          </tr>
+        </table>
+        <div class="chapter" id="rande">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h1 class="topictitle">Regions and Endpoints</h1>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title" style="clear: both" id="rande_oview">Overview</h2>
+                </div>
+              </div>
+            </div>
+            <p>To reduce data latency in your applications, most Amazon Web Services products allow you
+              to select a regional endpoint to make your requests. An endpoint is a URL that is the entry
+              point for a web service. For example, <code class="code">https://dynamodb.us-west-2.amazonaws.com</code> is
+              an entry point for the Amazon DynamoDB service.
+            </p>
+            <p>Some services, such as IAM, do not support regions; their endpoints therefore do not
+              include a region. A few services, such as Amazon EC2, let you specify an endpoint that does not
+              include a specific region, for example, <code class="code">https://ec2.amazonaws.com</code>. In that case,
+              AWS routes the endpoint to us-east-1.
+            </p>
+            <p>If a service supports regions, the resources in each region are independent. For
+              example, if you create an Amazon EC2 instance or an Amazon SQS queue in one region, the instance or
+              queue is independent from instances or queues in another region.
+            </p>
+            <p>For information about which regions are supported, see the specific region information
+              for your product. For information about the AWS products and endpoints available in
+              the AWS GovCloud (US) Region, go to
+              <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>
+              in the <em class="citetitle">AWS GovCloud (US) User Guide</em>.
+              For your convenience, the following tables provide information about the
+              region, endpoint, and protocol(s) for each AWS product.
+            </p>
+            <div class="highlights">
+              <p><strong>Topics</strong></p>
+              <ul>
+                <li><a href="rande.html#cf_region">Amazon CloudFront</a></li>
+                <li><a href="rande.html#cloudsearch_region">Amazon CloudSearch</a></li>
+                <li><a href="rande.html#d0e273">AWS CloudTrail</a></li>
+                <li><a href="rande.html#cw_region">Amazon CloudWatch</a></li>
+                <li><a href="rande.html#adp_region">Amazon DevPay</a></li>
+                <li><a href="rande.html#ddb_region">Amazon DynamoDB</a></li>
+                <li><a href="rande.html#ec2_region">Amazon EC2</a></li>
+                <li><a href="rande.html#emr_region">Amazon Elastic MapReduce</a></li>
+                <li><a href="rande.html#elastictranscoder_region">Amazon Elastic Transcoder</a></li>
+                <li><a href="rande.html#elasticache_region">Amazon ElastiCache</a></li>
+                <li><a href="rande.html#fps_region">Amazon Flexible Payments Service (FPS and ASP)</a></li>
+                <li><a href="rande.html#glacier_region">Amazon Glacier</a></li>
+                <li><a href="rande.html#amt_region">Amazon Mechanical Turk</a></li>
+                <li><a href="rande.html#redshift_region">Amazon Redshift</a></li>
+                <li><a href="rande.html#rds_region">Amazon Relational Database Service (RDS)</a></li>
+                <li><a href="rande.html#r53_region">Amazon Route&nbsp;53</a></li>
+                <li><a href="rande.html#ses_region">Amazon Simple Email Service (SES)</a></li>
+                <li><a href="rande.html#sdb_region">Amazon SimpleDB</a></li>
+                <li><a href="rande.html#sns_region">Amazon Simple Notification Service (Amazon SNS)</a></li>
+                <li><a href="rande.html#sqs_region">Amazon Simple Queue Service (SQS)</a></li>
+                <li><a href="rande.html#s3_region">Amazon Simple Storage Service (S3)</a></li>
+                <li><a href="rande.html#swf_region">Amazon Simple Workflow Service (SWF)</a></li>
+                <li><a href="rande.html#vpc_region">Amazon VPC (VPC)</a></li>
+                <li><a href="rande.html#as_region">Auto Scaling</a></li>
+                <li><a href="rande.html#cfn_region">AWS CloudFormation</a></li>
+                <li><a href="rande.html#datapipeline_region">AWS Data Pipeline</a></li>
+                <li><a href="rande.html#dc_region">AWS Direct Connect</a></li>
+                <li><a href="rande.html#elasticbeanstalk_region">AWS Elastic Beanstalk</a></li>
+                <li><a href="rande.html#iam_region">AWS Identity and Access Management (IAM)</a></li>
+                <li><a href="rande.html#ie_region">AWS Import/Export</a></li>
+                <li><a href="rande.html#opsworks_region">AWS OpsWorks</a></li>
+                <li><a href="rande.html#sts_region">AWS Security Token Service</a></li>
+                <li><a href="rande.html#sg_region">AWS Storage Gateway</a></li>
+                <li><a href="rande.html#awssupport_region">AWS Support</a></li>
+                <li><a href="rande.html#elb_region">Elastic Load Balancing</a></li>
+              </ul>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="cf_region">Amazon CloudFront</h3>
+                  </div>
+                </div>
+              </div>
+              <p>Amazon CloudFront distributions have a single endpoint: cloudfront.amazonaws.com.</p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="cloudsearch_region">Amazon CloudSearch</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>cloudsearch.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>cloudsearch.us-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>cloudsearch.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>cloudsearch.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>cloudsearch.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="d0e273">AWS CloudTrail</h3>
+                  </div>
+                </div>
+              </div>
+              <p>AWS CloudTrail supports the following endpoints:</p>
+              <p>
+              </p>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="newCol2">
+                    <col class="col2">
+                    <col class="newCol4">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>cloudtrail.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>cloudtrail.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="cw_region">Amazon CloudWatch</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>monitoring.us-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>monitoring.us-west-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>monitoring.us-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>monitoring.eu-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>monitoring.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>monitoring.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>monitoring.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>monitoring.sa-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                For information about using Amazon CloudWatch in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="adp_region">Amazon DevPay</h3>
+                  </div>
+                </div>
+              </div>
+              <p>Amazon DevPay has a single endpoint: https://ls.amazonaws.com. </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="ddb_region">Amazon DynamoDB</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>dynamodb.us-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>dynamodb.us-west-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>dynamodb.us-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>dynamodb.eu-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>dynamodb.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>dynamodb.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>dynamodb.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>dynamodb.sa-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                For information about using Amazon DynamoDB in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="ec2_region">Amazon EC2</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>ec2.us-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>ec2.us-west-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>ec2.us-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>ec2.eu-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>ec2.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>ec2.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>ec2.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>ec2.sa-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                For information about using Amazon EC2 in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="emr_region">Amazon Elastic MapReduce</h3>
+                  </div>
+                </div>
+              </div>
+              <p>Amazon Elastic MapReduce supports the following endpoints:</p>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>elasticmapreduce.us-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>elasticmapreduce.us-west-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>elasticmapreduce.us-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>elasticmapreduce.eu-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>elasticmapreduce.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>elasticmapreduce.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>elasticmapreduce.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>elasticmapreduce.sa-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>If you specify the general endpoint (elasticmapreduce.amazonaws.com), Amazon Elastic MapReduce directs your
+                request to an endpoint in the default region. For accounts created on or after March 8,
+                2013, the default region is us-west-2; for older accounts, the default region is
+                us-east-1.
+              </p>
+              <p>
+                For information about using Amazon Elastic MapReduce in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="elastictranscoder_region">Amazon Elastic Transcoder</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>elastictranscoder.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>elastictranscoder.us-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>elastictranscoder.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>elastictranscoder.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>elastictranscoder.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>elastictranscoder.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="elasticache_region">Amazon ElastiCache</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>elasticache.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>elasticache.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>elasticache.us-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>elasticache.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>elasticache.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>elasticache.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>elasticache.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>elasticache.sa-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="fps_region">Amazon Flexible Payments Service (FPS and ASP)</h3>
+                  </div>
+                </div>
+              </div>
+              <p>Amazon Flexible Payments Service has four endpoints for requests, as listed in the following table. Two are for
+                sandbox testing of Co-Branded User Interface (CBUI) and API requests, and two are for production CBUI
+                and API requests.
+              </p>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <p class="simpara">Sandbox endpoint for Co-Branded service requests.</p>
+                      </td>
+                      <td>
+                        <p class="simpara">authorize.payments-sandbox.amazon.com/cobranded-ui/actions/start</p>
+                      </td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="simpara">Production endpoint for Co-Branded service
+                          requests.
+                        </p>
+                      </td>
+                      <td>
+                        <p class="simpara">authorize.payments.amazon.com/cobranded-ui/actions/start</p>
+                      </td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="simpara">Sandbox endpoint for Amazon FPS actions.</p>
+                      </td>
+                      <td>
+                        <p class="simpara">fps.sandbox.amazonaws.com</p>
+                      </td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="simpara">Production endpoint for Amazon FPS actions.</p>
+                      </td>
+                      <td>
+                        <p class="simpara">fps.amazonaws.com</p>
+                      </td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="glacier_region">Amazon Glacier</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>glacier.us-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>glacier.us-west-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>glacier.us-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>glacier.eu-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>glacier.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>glacier.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="amt_region">Amazon Mechanical Turk</h3>
+                  </div>
+                </div>
+              </div>
+              <p>Amazon Mechanical Turk has two endpoints, which both support HTTP and HTTPS requests.</p>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <p class="simpara">Sandbox endpoint for Amazon Mechanical Turk actions.</p>
+                      </td>
+                      <td>
+                        <p class="simpara">mechanicalturk.sandbox.amazonaws.com</p>
+                      </td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="simpara">Production endpoint for Amazon Mechanical Turk actions.</p>
+                      </td>
+                      <td>
+                        <p class="simpara">mechanicalturk.amazonaws.com</p>
+                      </td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="redshift_region">Amazon Redshift</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>redshift.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>redshift.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>redshift.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>redshift.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>redshift.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>redshift.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="rds_region">Amazon Relational Database Service (RDS)</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>rds.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>rds.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>rds.us-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>rds.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>rds.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>rds.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>rds.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>rds.sa-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                For information about using Amazon Relational Database Service in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="r53_region">Amazon Route&nbsp;53</h3>
+                  </div>
+                </div>
+              </div>
+              <p>Amazon Route&nbsp;53 has a single endpoint: route53.amazonaws.com. It only supports HTTPS requests.</p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="ses_region">Amazon Simple Email Service (SES)</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>email.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>email-smtp.us-east-1.amazonaws.com, port 465</td>
+                      <td>SMTP</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="sdb_region">Amazon SimpleDB</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>sdb.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>sdb.us-west-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>sdb.us-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>sdb.eu-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>sdb.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>sdb.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>sdb.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>sdb.sa-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="sns_region">Amazon Simple Notification Service (Amazon SNS)</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>sns.us-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>sns.us-west-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>sns.us-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>sns.eu-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>sns.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>sns.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>sns.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>sns.sa-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                For information about using Amazon Simple Notification Service in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="sqs_region">Amazon Simple Queue Service (SQS)</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>sqs.us-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>sqs.us-west-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>sqs.us-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>sqs.eu-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>sqs.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>sqs.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>sqs.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>sqs.sa-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                For information about using Amazon Simple Queue Service in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="s3_region">Amazon Simple Storage Service (S3)</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col class="col3">
+                    <col class="col4">
+                    <col class="col5">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Location constraint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US Standard *</td>
+                      <td>us-east-1</td>
+                      <td>
+                        <p>You can use one of the following two endpoints:</p>
+                        <p>
+                        </p>
+                        <div class="itemizedlist">
+                          <ul class="itemizedlist" type="disc">
+                            <li class="listitem">
+                              <p>s3.amazonaws.com (Northern Virginia or Pacific Northwest)</p>
+                            </li>
+                            <li class="listitem">
+                              <p>s3-external-1.amazonaws.com (Northern Virginia only)</p>
+                            </li>
+                          </ul>
+                        </div>
+                        <p>
+                        </p>
+                      </td>
+                      <td>(none required)</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>s3-us-west-2.amazonaws.com</td>
+                      <td>us-west-2</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>s3-us-west-1.amazonaws.com</td>
+                      <td>us-west-1</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>s3-eu-west-1.amazonaws.com</td>
+                      <td>
+                        <p>EU or eu-west-1 </p>
+                      </td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>s3-ap-southeast-1.amazonaws.com</td>
+                      <td>ap-southeast-1</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>s3-ap-southeast-2.amazonaws.com</td>
+                      <td>ap-southeast-2</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>s3-ap-northeast-1.amazonaws.com</td>
+                      <td>ap-northeast-1</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>s3-sa-east-1.amazonaws.com</td>
+                      <td>sa-east-1</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>*
+                For the
+                US Standard Region, the endpoints work as follows:
+              </p>
+              <p>
+              </p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist" type="disc">
+                  <li class="listitem">
+                    <p><span class="topcom">s3.amazonaws.com endpoint &#8212; </span>Amazon S3
+                      automatically routes requests to facilities in Northern Virginia or the Pacific
+                      Northwest using network maps.
+                    </p>
+                  </li>
+                  <li class="listitem">
+                    <p><span class="topcom">s3-external-1.amazonaws.com endpoint &#8212;
+                      </span>Amazon S3 routes requests to a facility in Northern Virginia. This is
+                      especially useful in a scenario where you require low-latency access to your
+                      Amazon S3 data from Amazon EC2 in the Northern Virginia Region.
+                    </p>
+                    <p></p>
+                  </li>
+                </ul>
+              </div>
+              <p>
+              </p>
+              <div class="aws-note">
+                <p class="aws-note">Important</p>
+                <p>If you use a region other than the US Standard endpoint to create a bucket, you must set the <em class="parameter"><code>LocationConstraint</code></em> bucket
+                  parameter to the same region. Both the AWS SDK for Java and AWS SDK for .NET use an enumeration for setting location constraints (<code class="code">Region</code> for Java, <code class="code">S3Region</code> for .NET). For more information, go to <a class="ulink" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/LocationSelection.html" target="_blank">Buckets and Regions</a> in the <span class="emphasis"><em>Amazon Simple Storage Service Developer Guide</em></span>.
+                </p>
+              </div>
+              <div class="section">
+                <div class="titlepage">
+                  <div>
+                    <div>
+                      <h4 class="title" id="s3_website_region_endpoints">Amazon Simple Storage Service Website Endpoints</h4>
+                    </div>
+                  </div>
+                </div>
+                <p>When you configure your bucket as a website, the website is available using the following
+                  region-specific website endpoints. Note that the website endpoints are different than
+                  the REST API endpoints listed in the preceding table. For more information about hosting
+                  websites on Amazon S3, go to <a class="ulink" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html" target="_blank">Hosting Websites on Amazon S3</a> in the <span class="emphasis"><em>Amazon Simple Storage Service Developer Guide</em></span>. You need
+                  the hosted zone IDs when using the Amazon Route&nbsp;53 API to add an alias record to your
+                  hosted zone.
+                </p>
+                <div class="informaltable">
+                  <table cellspacing="0" border="1">
+                    <colgroup>
+                      <col class="c1">
+                      <col class="c2">
+                      <col class="c3">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>Region</th>
+                        <th>Website endpoint</th>
+                        <th>Hosted zone ID</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>US Standard</td>
+                        <td>s3-website-us-east-1.amazonaws.com</td>
+                        <td>Z3AQBSTGFYJSTF&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>US West (Oregon) Region</td>
+                        <td>
+                          <p>s3-website-us-west-2.amazonaws.com</p>
+                        </td>
+                        <td> Z3BJ6K6RIION7M</td>
+                      </tr>
+                      <tr>
+                        <td>US West (Northern California) Region</td>
+                        <td>
+                          <p>s3-website-us-west-1.amazonaws.com</p>
+                        </td>
+                        <td> Z2F56UZL2M1ACD&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>EU (Ireland) Region</td>
+                        <td>
+                          <p>s3-website-eu-west-1.amazonaws.com</p>
+                        </td>
+                        <td> Z1BKCTXD74EZPE</td>
+                      </tr>
+                      <tr>
+                        <td>Asia Pacific (Singapore) Region</td>
+                        <td>
+                          <p>s3-website-ap-southeast-1.amazonaws.com</p>
+                        </td>
+                        <td> Z3O0J2DXBE1FTB</td>
+                      </tr>
+                      <tr>
+                        <td>Asia Pacific (Sydney) Region</td>
+                        <td>
+                          <p>s3-website-ap-southeast-2.amazonaws.com</p>
+                        </td>
+                        <td> Z1WCIGYICN2BYD</td>
+                      </tr>
+                      <tr>
+                        <td>Asia Pacific (Tokyo) Region</td>
+                        <td>
+                          <p>s3-website-ap-northeast-1.amazonaws.com</p>
+                        </td>
+                        <td> Z2M4EHUR26P7ZW</td>
+                      </tr>
+                      <tr>
+                        <td>South America (Sao Paulo) Region</td>
+                        <td>
+                          <p>s3-website-sa-east-1.amazonaws.com</p>
+                        </td>
+                        <td> Z7KQH4QJS55SO</td>
+                      </tr>
+                      <tr>
+                        <td>AWS GovCloud (US)</td>
+                        <td>
+                          <p> s3-website-us-gov-west-1.amazonaws.com</p>
+                        </td>
+                        <td> Z31GFT0UA1I2HV</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>
+                  For information about using Amazon Simple Storage Service in AWS GovCloud (US),
+                  go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+                </p>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="swf_region">Amazon Simple Workflow Service (SWF)</h3>
+                  </div>
+                </div>
+              </div>
+              <p></p>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>swf.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>swf.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>swf.us-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>swf.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>swf.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>swf.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>swf.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>swf.sa-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p></p>
+              <p>
+                For information about using Amazon Simple Workflow Service in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="vpc_region">Amazon VPC (VPC)</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>ec2.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>ec2.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>ec2.us-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>ec2.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>ec2.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>ec2.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>ec2.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>ec2.sa-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>If you just specify the general endpoint (ec2.amazonaws.com), Amazon VPC directs your request to the us-east-1 endpoint.</p>
+              <p>
+                For information about using Amazon VPC in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="as_region">Auto Scaling</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>autoscaling.us-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>autoscaling.us-west-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>autoscaling.us-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>autoscaling.eu-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>autoscaling.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>autoscaling.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>autoscaling.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>autoscaling.sa-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>If you just specify the general endpoint (autoscaling.amazonaws.com), Auto Scaling directs
+                your request to the us-east-1 endpoint.
+              </p>
+              <p>
+                For information about using Auto Scaling in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="cfn_region">AWS CloudFormation</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>cloudformation.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>cloudformation.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>cloudformation.us-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>cloudformation.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>cloudformation.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>cloudformation.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>cloudformation.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>cloudformation.sa-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                For information about using AWS CloudFormation in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="datapipeline_region">AWS Data Pipeline</h3>
+                  </div>
+                </div>
+              </div>
+              <p>AWS Data Pipeline has a single endpoint: datapipeline.us-east-1.amazonaws.com (HTTPS).</p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="dc_region">AWS Direct Connect</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>directconnect.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>directconnect.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>directconnect.us-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>directconnect.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>directconnect.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>directconnect.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>directconnect.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>directconnect.sa-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="elasticbeanstalk_region">AWS Elastic Beanstalk</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>elasticbeanstalk.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>elasticbeanstalk.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>elasticbeanstalk.us-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>elasticbeanstalk.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>elasticbeanstalk.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>elasticbeanstalk.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>elasticbeanstalk.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>elasticbeanstalk.sa-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="iam_region">AWS Identity and Access Management (IAM)</h3>
+                  </div>
+                </div>
+              </div>
+              <p>IAM has a single endpoint: https://iam.amazonaws.com. </p>
+              <p>
+                For information about using AWS Identity and Access Management in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="ie_region">AWS Import/Export</h3>
+                  </div>
+                </div>
+              </div>
+              <p>AWS Import/Export has a single endpoint: importexport.amazonaws.com and only supports HTTPS requests.</p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="opsworks_region">AWS OpsWorks</h3>
+                  </div>
+                </div>
+              </div>
+              <p>AWS OpsWorks has a single endpoint: opsworks.us-east-1.amazonaws.com (HTTPS).</p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="sts_region">AWS Security Token Service</h3>
+                  </div>
+                </div>
+              </div>
+              <p>Currently, the AWS Security Token Service has a single endpoint: https://sts.amazonaws.com. </p>
+              <p>
+                For information about using AWS Security Token Service in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="sg_region">AWS Storage Gateway</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>storagegateway.us-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>storagegateway.us-west-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>storagegateway.us-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>storagegateway.eu-west-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>storagegateway.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>storagegateway.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>storagegateway.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>storagegateway.sa-east-1.amazonaws.com</td>
+                      <td>HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="awssupport_region">AWS Support</h3>
+                  </div>
+                </div>
+              </div>
+              <p>AWS Support has a single endpoint: support.us-east-1.amazonaws.com (HTTPS).</p>
+            </div>
+            <div class="section">
+              <div class="titlepage">
+                <div>
+                  <div>
+                    <h3 class="title" id="elb_region">Elastic Load Balancing</h3>
+                  </div>
+                </div>
+              </div>
+              <p>To create or work with a load balancer in a specific region, use the corresponding regional service
+                endpoint. Elastic Load Balancing supports the endpoints listed in the following table.
+              </p>
+              <div class="informaltable">
+                <table cellspacing="0" border="0">
+                  <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Region Name</th>
+                      <th>Region</th>
+                      <th>Endpoint</th>
+                      <th>Protocol</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>US East (Northern Virginia) Region</td>
+                      <td>us-east-1</td>
+                      <td>elasticloadbalancing.us-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Oregon) Region</td>
+                      <td>us-west-2</td>
+                      <td>elasticloadbalancing.us-west-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>US West (Northern California) Region</td>
+                      <td>us-west-1</td>
+                      <td>elasticloadbalancing.us-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>EU (Ireland) Region</td>
+                      <td>eu-west-1</td>
+                      <td>elasticloadbalancing.eu-west-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Singapore) Region</td>
+                      <td>ap-southeast-1</td>
+                      <td>elasticloadbalancing.ap-southeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Sydney) Region</td>
+                      <td>ap-southeast-2</td>
+                      <td>elasticloadbalancing.ap-southeast-2.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>Asia Pacific (Tokyo) Region</td>
+                      <td>ap-northeast-1</td>
+                      <td>elasticloadbalancing.ap-northeast-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                    <tr>
+                      <td>South America (Sao Paulo) Region</td>
+                      <td>sa-east-1</td>
+                      <td>elasticloadbalancing.sa-east-1.amazonaws.com</td>
+                      <td>HTTP and HTTPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p> If you just specify the general endpoint (elasticloadbalancing.amazonaws.com), Elastic Load Balancing directs
+                your request to the us-east-1 endpoint.
+              </p>
+              <p>
+                For information about using Elastic Load Balancing in AWS GovCloud (US),
+                go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>.
+              </p>
+            </div>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title" style="clear: both" id="govcloud_region">AWS GovCloud (US) Region</h2>
+                </div>
+              </div>
+            </div>
+            <p>For information about endpoints and protocols in the AWS GovCloud (US) Region,
+              go to <a class="ulink" href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-endpoints.html" target="_blank">AWS GovCloud (US) Endpoints</a>
+              in the <em class="citetitle">AWS GovCloud (US) User Guide</em>.
+            </p>
+          </div>
+        </div>
+        <img src="images/expanderarrow.png" style="display:none;height:0;width:0">
+        <div class="navfooter">
+          <table class="navfooter" width="100%" summary="Navigation footer" cellspacing="0" cellpadding="2" style="margin-top:12px;">
+            <tr>
+              <td valign="top" style="padding-top:8px;"><a class="awstoc" target="_top" href="http://docs.aws.amazon.com/general/latest/gr/docconventions.html">Document Conventions</a></td>
+              <td width="350px" align="right" valign="top" style="padding-top:8px;"><a class="awstoc" accesskey="p" style="margin-right:12px;" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-previous', 'aws-docs-click', location.protocol + '//' + location.hostname + '/Welcome.html');" href="Welcome.html">&laquo; Previous</a><a class="awstoc" accesskey="n" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-next', 'aws-docs-click', location.protocol + '//' + location.hostname + '/aws-security-credentials.html');" href="aws-security-credentials.html">Next &raquo;</a></td>
+            </tr>
+            <tr>
+              <td style="padding-top:8px;"><a class="awstoc" target="_top" href="http://aws.amazon.com/terms/">Terms of Use</a></td>
+              <td width="350px" align="right" valign="top" style="padding-top:8px;">Did this page help you?&nbsp;&nbsp;<a class="awstoc" target="_blank" href="feedbackyes.html?topic_id=rande">Yes</a>&nbsp;|&nbsp;<a class="awstoc" target="_blank" href="feedbackno.html?topic_id=rande">No</a>&nbsp;|&nbsp;&nbsp;<a class="awstoc" target="_blank" href="https://portal.aws.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_04?service_name=Regions&amp;guide_name=General%20Reference&amp;api_version=1.0&amp;file_name=rande">Tell us about it...</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <noscript>
+      <div class="yui-b" style="padding: 20px; padding-top: 0;">
+        <div class="yui-ge">
+          <div class="yui-u first">
+            <div id="error_messages">
+              <img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" style="float: left;" alt="Warning">
+              <div style="float:left; margin-left: 1em;"><strong>Javascript is disabled or is unavailable in your browser.</strong><br>
+                To use the AWS Documentation, Javascript must be enabled.  Please refer to your
+                browser's Help pages for instructions.
+              </div>
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </noscript>
+    <!-- SiteCatalyst code version: H.25.2.
+      Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+      More info available at http://www.omniture.com --><script language="JavaScript" type="text/javascript" src="https://d36cz9buwru1tt.cloudfront.net/js/sitecatalyst/s_code.min.js"></script><script language="JavaScript" type="text/javascript"><!--
+      // Documentation Service Name
+      s.prop66='Amazon Web Services';
+      s.eVar66='D=c66';
+
+      // Documentation Guide Name
+      s.prop65='General Reference';
+      s.eVar65='D=c65';
+
+      var s_code=s.t();if(s_code)document.write(s_code)//--></script><script language="JavaScript" type="text/javascript"><!--
+      if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+      //--></script>
+    <noscript><img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt=""></noscript>
+    <!--/DO NOT REMOVE/--><!-- End SiteCatalyst code version: H.25.2. -->
+  </body>
+</html>
