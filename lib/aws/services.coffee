@@ -1,3 +1,5 @@
+$ = window?.$ or require('jquery')
+
 class AWSServices
 
   parse: (body) ->

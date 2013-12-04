@@ -1,3 +1,5 @@
+$ = window?.$ or require('jquery')
+
 class AWSRegions
 
   parse: (regionsTable) ->

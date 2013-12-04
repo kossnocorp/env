@@ -11,7 +11,9 @@ module.exports = function (grunt) {
           'bower_components/modula/lib/modula.js',
           'bower_components/jquery/jquery.js',
 
-          'lib/**/*.coffee',
+          'lib/aws/services.coffee',
+          'lib/aws/regions.coffee',
+          'lib/aws/service_regions.coffee',
           'spec/**/*_spec.coffee'
         ],
         exclude: [],

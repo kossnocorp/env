@@ -5,6 +5,9 @@
   "description": "My env",
 
   "devDependencies": {
+    "jquery": "",
+    "jsdom": "",
+    "request": "",
     "coffee-script": "",
     "karma": "",
     "mocha": "",
